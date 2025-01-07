@@ -88,15 +88,11 @@ a.site-title:link,
 a.site-title:visited {
   color: #333;
   text-decoration: none;
-  font-family: Ubuntu, sans-serif;
-  font-weight: 700;
 }
 
 a.site-title:hover {
   color: #000;
   text-decoration: underline;
-  font-family: Ubuntu, sans-serif;
-  font-weight: 700;
 }
 
 a.item-link:link,
@@ -147,6 +143,8 @@ a.item-link:hover {
   font-size: 20px;
   margin-left: 10px;
   padding-right: 10px;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 24px;
 }
 
 .header-icons {
