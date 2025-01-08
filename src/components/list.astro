@@ -2,10 +2,13 @@
 import Layout from '../layouts/base.astro'
 import Header from '../components/header.astro'
 import Item from '../components/item.astro'
+import { getEnv } from '../lib/env'
 
 const { SITE_URL } = Astro.locals
 const { channel, before = true, after = true, isItem = false } = Astro.props
 const posts = channel.posts ?? []
+const BEFORE = getEnv(import.meta.env, Astro, 'BEFORE')
+const AFTER = getEnv(import.meta.env, Astro, 'AFTER')
 
 const beforeCursor = posts[posts.length - 1]?.id
 const afterCursor = posts[0]?.id
@@ -23,8 +26,8 @@ const afterCursor = posts[0]?.id
   <div class="pages-container">
     {
       before && beforeCursor > 1 ? (
-        <a href={`${SITE_URL}before/${beforeCursor}`} title="Before" class="page">
-          Before
+        <a href={`${SITE_URL}before/${beforeCursor}`} title={ BEFORE ? BEFORE : 'Before' } class="page">
+          { BEFORE ? BEFORE : 'Before' }
         </a>
       ) : (
         <span class="page-placeholder">&nbsp;</span>
@@ -34,8 +37,8 @@ const afterCursor = posts[0]?.id
     <div class="pages-info"></div>
     {
       after && afterCursor ? (
-        <a href={`${SITE_URL}after/${afterCursor}`} title="After" class="page">
-          After
+        <a href={`${SITE_URL}after/${afterCursor}`} title={ AFTER ? AFTER : 'After' } class="page">
+          { AFTER ? AFTER : 'After' }
         </a>
       ) : (
         <span class="page-placeholder">&nbsp;</span>

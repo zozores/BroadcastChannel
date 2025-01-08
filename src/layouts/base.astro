@@ -55,6 +55,9 @@ const HEADER_INJECT = getEnv(import.meta.env, Astro, 'HEADER_INJECT')
 const FOOTER_INJECT = getEnv(import.meta.env, Astro, 'FOOTER_INJECT')
 const TAGS = getEnv(import.meta.env, Astro, 'TAGS')
 const LINKS = getEnv(import.meta.env, Astro, 'LINKS')
+const SEARCH = getEnv(import.meta.env, Astro, 'SEARCH')
+const POWERED_BY = getEnv(import.meta.env, Astro, 'POWERED_BY')
+const BACK_TO_TOP = getEnv(import.meta.env, Astro, 'BACK_TO_TOP')
 const navs = (getEnv(import.meta.env, Astro, 'NAVS') || '')
   .split(';')
   .filter(Boolean)
@@ -141,13 +144,13 @@ const navs = (getEnv(import.meta.env, Astro, 'NAVS') || '')
                 ))
               }
             </div>
-            <input class="search-icon" name="icon" type="checkbox" placeholder="Search" />
+            <input class="search-icon" name="icon" type="checkbox" placeholder={SEARCH ? SEARCH : 'Search'} />
             <form class="search-form" action={searchAction} method="get">
               {GOOGLE_SEARCH_SITE ? <input type="hidden" name="as_sitesearch" value={GOOGLE_SEARCH_SITE} /> : null}
-              <input type="text" name="q" placeholder="Search" />
+              <input type="text" name="q" placeholder={SEARCH ? SEARCH : 'Search'} />
             </form>
             <div class="copyright-wrap">
-              Powered by
+              {POWERED_BY ? POWERED_BY : 'Powered by'}
               <a
                 href="https://github.com/ccbikai/BroadcastChannel"
                 title="BroadcastChannel"
@@ -159,13 +162,14 @@ const navs = (getEnv(import.meta.env, Astro, 'NAVS') || '')
               <a href="https://github.com/Planetable/SiteTemplateSepia" title="Sepia" target="_blank" rel="noopener">
                 Sepia
               </a>
+              
             </div>
           </slot>
         </div>
       </div>
     </div>
-    <a href="#wrapper" id="back-to-top" aria-label="Back to top">
-      <img {...backToTopIcon} alt="Back to Top" />
+    <a href="#wrapper" id="back-to-top" aria-label={BACK_TO_TOP ? BACK_TO_TOP : 'Back to Top'}>
+      <img {...backToTopIcon} alt={BACK_TO_TOP ? BACK_TO_TOP : 'Back to Top'} />
     </a>
     <Fragment set:html={FOOTER_INJECT} />
   </body>

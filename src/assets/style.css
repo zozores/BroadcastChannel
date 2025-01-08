@@ -73,25 +73,25 @@ body {
 
 a:link,
 a:visited {
-  color: #778087;
+  color: blue;
   text-decoration: none;
   line-break: loose;
 }
 
 a:hover {
-  color: #4d5256;
+  color: purple;
   text-decoration: underline;
   text-underline-offset: 0.2rem;
 }
 
 a.site-title:link,
 a.site-title:visited {
-  color: #333;
+  color: #000;
   text-decoration: none;
 }
 
 a.site-title:hover {
-  color: #000;
+  color: #333;
   text-decoration: underline;
 }
 
