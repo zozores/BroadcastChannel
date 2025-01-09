@@ -53,6 +53,7 @@ const searchAction = GOOGLE_SEARCH_SITE ? 'https://www.google.com/search' : '/se
 
 const HEADER_INJECT = getEnv(import.meta.env, Astro, 'HEADER_INJECT')
 const FOOTER_INJECT = getEnv(import.meta.env, Astro, 'FOOTER_INJECT')
+const CREATIVE_COMMONS_INJECT = getEnv(import.meta.env, Astro, 'CREATIVE_COMMONS_INJECT')
 const TAGS = getEnv(import.meta.env, Astro, 'TAGS')
 const LINKS = getEnv(import.meta.env, Astro, 'LINKS')
 const SEARCH = getEnv(import.meta.env, Astro, 'SEARCH')
@@ -162,7 +163,7 @@ const navs = (getEnv(import.meta.env, Astro, 'NAVS') || '')
               <a href="https://github.com/Planetable/SiteTemplateSepia" title="Sepia" target="_blank" rel="noopener">
                 Sepia
               </a>
-              
+              <Fragment set:html={CREATIVE_COMMONS_INJECT} />
             </div>
           </slot>
         </div>
