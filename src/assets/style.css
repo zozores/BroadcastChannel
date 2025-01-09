@@ -123,6 +123,10 @@ a.item-link:hover {
   border-right: 1px solid var(--border-color);
 }
 
+.copyright-wrap img {
+  float: left;
+}
+
 #header {
   padding: 10px 10px 10px 10px;
   margin-bottom: 10px;
@@ -893,3 +897,5 @@ li:has(input[type='checkbox']:checked:disabled)::before {
     margin-bottom: 20px;
   }
 }
+
+
